@@ -1,0 +1,9 @@
+#Python files
+
+*.pyc
+*pycache*
+*migrations*
+
+#Vim files
+*.swp
+*.swo
