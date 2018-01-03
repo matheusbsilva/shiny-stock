@@ -6,6 +6,7 @@ class ItemType(models.Model):
 
 class UnityType(models.Model):
     description_unity = models.CharField(max_length=50,blank=False,null=False)
+    size_unity = models.CharField(max_length=10,blank=True,null=True)
 
 
 class Item(models.Model):
