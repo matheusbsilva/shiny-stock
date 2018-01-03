@@ -1,0 +1,9 @@
+<h2> {{ item }} </h2>
+<ul>
+    <li>Quantidade = {{ item.quantity_item }}</li>
+    <li>Tipo: {{ item.item_type.description_item}}</li>
+    <li>Tipo da unidade: {{ item.unity_type.description_unity}}</li>
+    {% if item.unity_type.size %}
+        <li>Tamanho da unidade: {{ item.unity_type.size}}</li>
+    {% endif %}
+</ul>
