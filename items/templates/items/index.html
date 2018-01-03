@@ -1,0 +1,9 @@
+{% if item_list %}
+    <ul>
+    {% for item in item_list %}
+    <li>{{ item.name_item }} - quantidade = {{ item.quantity_item }}</li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>Nenhum item registrado</p>
+{% endif %}
