@@ -31,3 +31,8 @@ class ItemUpdate(generic.UpdateView):
 
     def get_success_url(self):
         return reverse_lazy('items:detail', kwargs={'pk':self.kwargs['pk']})
+
+
+class ItemDelete(generic.DeleteView):
+    model = Item
+    success_url = reverse_lazy('items:index')
