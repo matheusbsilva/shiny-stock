@@ -1,0 +1,11 @@
+{% if item_list %}
+    <ul>
+    {% for item in item_list %}
+    <li><a href="{% url 'items:detail' item.id %}">{{ item.name_item }} </a> - quantidade = {{ item.quantity_item }}</li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>Nenhum item registrado</p>
+{% endif %}
+
+<a href="{% url 'items:new' %}">Novo item</a>
