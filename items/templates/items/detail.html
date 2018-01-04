@@ -7,3 +7,5 @@
         <li>Tamanho da unidade: {{ item.unity_type.size}}</li>
     {% endif %}
 </ul>
+
+<a href="{% url 'items:edit' pk=item.id %}">Editar</a>

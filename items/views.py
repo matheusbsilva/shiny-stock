@@ -22,3 +22,12 @@ class ItemCreate(generic.CreateView):
     template_name = 'items/new_item.html'
     success_url = reverse_lazy('items:index')
     form_class = ItemForm
+
+
+class ItemUpdate(generic.UpdateView):
+    model = Item
+    template_name = 'items/edit_item.html'
+    form_class = ItemForm
+
+    def get_success_url(self):
+        return reverse_lazy('items:detail', kwargs={'pk':self.kwargs['pk']})
