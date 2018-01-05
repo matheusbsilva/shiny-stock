@@ -19,14 +19,14 @@ class ItemDetail(generic.DetailView):
 
 class ItemCreate(generic.CreateView):
     model = Item
-    template_name = 'items/new_item.html'
+    template_name = 'items/new.html'
     success_url = reverse_lazy('items:items_index')
     form_class = ItemForm
 
 
 class ItemUpdate(generic.UpdateView):
     model = Item
-    template_name = 'items/edit_item.html'
+    template_name = 'items/edit.html'
     form_class = ItemForm
 
     def get_success_url(self):
