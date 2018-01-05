@@ -1,0 +1,8 @@
+<h2> {{ itemtype }} </h2>
+
+<a href="{% url 'items:itemtype_edit' pk=itemtype.id %}">Editar</a>
+
+<form action="{% url 'items:itemtype_delete' pk=itemtype.id %}" method="post">
+    {% csrf_token %}
+    <input type="submit" onclick="return confirm('Tem certeza que deseja deletar?')" value="Deletar tipo de item">
+</form>

@@ -1,8 +1,8 @@
 from django.views import generic
 from django.urls import reverse_lazy
 
-from .models import Item
-from .forms import ItemForm
+from .models import Item, ItemType
+from .forms import ItemForm, ItemTypeForm
 
 class ItemIndex(generic.ListView):
     template_name = 'items/index.html'
@@ -19,20 +19,55 @@ class ItemDetail(generic.DetailView):
 
 class ItemCreate(generic.CreateView):
     model = Item
-    template_name = 'items/new_item.html'
-    success_url = reverse_lazy('items:index')
+    template_name = 'items/new.html'
+    success_url = reverse_lazy('items:items_index')
     form_class = ItemForm
 
 
 class ItemUpdate(generic.UpdateView):
     model = Item
-    template_name = 'items/edit_item.html'
+    template_name = 'items/edit.html'
     form_class = ItemForm
 
     def get_success_url(self):
-        return reverse_lazy('items:detail', kwargs={'pk':self.kwargs['pk']})
+        return reverse_lazy('items:items_detail', kwargs={'pk':self.kwargs['pk']})
 
 
 class ItemDelete(generic.DeleteView):
     model = Item
-    success_url = reverse_lazy('items:index')
+    success_url = reverse_lazy('items:items_index')
+
+
+class ItemTypeIndex(generic.ListView):
+    model = ItemType
+    template_name='itemtype/index.html'
+    context_object_name = 'itemtype_list'
+
+    def get_queryset(self):
+        return ItemType.objects.all()
+
+
+class ItemTypeDetail(generic.DetailView):
+    model = ItemType
+    template_name = 'itemtype/detail.html'
+
+
+class ItemTypeCreate(generic.CreateView):
+    model = ItemType
+    template_name = 'itemtype/new.html'
+    success_url = reverse_lazy('items:itemtype_index')
+    form_class = ItemTypeForm
+
+
+class ItemTypeUpdate(generic.UpdateView):
+    model = ItemType
+    template_name = 'itemtype/edit.html'
+    form_class = ItemTypeForm
+
+    def get_success_url(self):
+        return reverse_lazy('items:itemtype_index')
+
+
+class ItemTypeDelete(generic.DeleteView):
+    model = ItemType
+    success_url = reverse_lazy('items:itemtype_index')

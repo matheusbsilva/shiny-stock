@@ -8,8 +8,8 @@
     {% endif %}
 </ul>
 
-<a href="{% url 'items:edit' pk=item.id %}">Editar</a>
-<form action="{% url 'items:delete' pk=item.id %}" method="post">
+<a href="{% url 'items:items_edit' pk=item.id %}">Editar</a>
+<form action="{% url 'items:items_delete' pk=item.id %}" method="post">
     {% csrf_token %}
     <input type="submit" onclick="return confirm('Tem certeza que deseja deletar?')" value="Deletar item">
 </form>
