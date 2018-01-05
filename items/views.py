@@ -66,3 +66,8 @@ class ItemTypeUpdate(generic.UpdateView):
 
     def get_success_url(self):
         return reverse_lazy('items:itemtype_index')
+
+
+class ItemTypeDelete(generic.DeleteView):
+    model = ItemType
+    success_url = reverse_lazy('items:itemtype_index')
