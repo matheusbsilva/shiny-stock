@@ -1,0 +1,10 @@
+{% if itemtype_list %}
+    <ul>
+    {% for itemtype in itemtype_list %}
+    <li><a href="{% url 'items:itemtype_detail' itemtype.id %}">{{ itemtype.description_item}} </a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>Nenhum item registrado</p>
+{% endif %}
+
