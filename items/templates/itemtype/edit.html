@@ -1,0 +1,5 @@
+<form action="{% url 'items:itemtype_edit' pk=itemtype.id %}" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="OK">
+</form>

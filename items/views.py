@@ -57,3 +57,12 @@ class ItemTypeCreate(generic.CreateView):
     template_name = 'itemtype/new.html'
     success_url = reverse_lazy('items:itemtype_index')
     form_class = ItemTypeForm
+
+
+class ItemTypeUpdate(generic.UpdateView):
+    model = ItemType
+    template_name = 'itemtype/edit.html'
+    form_class = ItemTypeForm
+
+    def get_success_url(self):
+        return reverse_lazy('items:itemtype_index')
