@@ -2,7 +2,7 @@ from django.views import generic
 from django.urls import reverse_lazy
 
 from .models import Item, ItemType
-from .forms import ItemForm
+from .forms import ItemForm, ItemTypeForm
 
 class ItemIndex(generic.ListView):
     template_name = 'items/index.html'
@@ -50,3 +50,10 @@ class ItemTypeIndex(generic.ListView):
 class ItemTypeDetail(generic.DetailView):
     model = ItemType
     template_name = 'itemtype/detail.html'
+
+
+class ItemTypeCreate(generic.CreateView):
+    model = ItemType
+    template_name = 'itemtype/new.html'
+    success_url = reverse_lazy('items:itemtype_index')
+    form_class = ItemTypeForm
