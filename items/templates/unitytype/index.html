@@ -1,0 +1,10 @@
+{% if unitytype_list %}
+    <ul>
+    {% for unitytype in unitytype_list %}
+    <li><a href="{% url 'items:unitytype_detail' unitytype.id %}">{{ unitytype.description_unity}} <a/></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>Nenhum tipo de unidade registrado</p>
+{% endif %}
+
