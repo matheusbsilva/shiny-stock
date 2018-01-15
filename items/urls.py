@@ -19,4 +19,5 @@ urlpatterns = [
 
     path('unity/', views.UnityTypeIndex.as_view(), name='unitytype_index'),
     path('unity/<int:pk>/', views.UnityTypeDetail.as_view(), name='unitytype_detail'),
+    path('unity/new', views.UnityTypeCreate.as_view(), name='unitytype_new'),
 ]
