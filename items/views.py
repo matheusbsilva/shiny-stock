@@ -1,8 +1,8 @@
 from django.views import generic
 from django.urls import reverse_lazy
 
-from .models import Item, ItemType
-from .forms import ItemForm, ItemTypeForm
+from .models import Item, ItemType, UnityType
+from .forms import ItemForm, ItemTypeForm, UnityTypeForm
 
 class ItemIndex(generic.ListView):
     template_name = 'items/index.html'
@@ -71,3 +71,24 @@ class ItemTypeUpdate(generic.UpdateView):
 class ItemTypeDelete(generic.DeleteView):
     model = ItemType
     success_url = reverse_lazy('items:itemtype_index')
+
+
+class UnityTypeIndex(generic.ListView):
+    model = UnityType
+    template_name = 'unitytype/index.html'
+    context_object_name = 'unitytype_list'
+
+    def get_queryset(self):
+        return UnityType.objects.all()
+
+
+class UnityTypeDetail(generic.DetailView):
+    model = UnityType
+    template_name = 'unitytype/detail.html'
+
+
+class UnityTypeCreate(generic.CreateView):
+    model = UnityType
+    template_name = 'unitytype/new.html'
+    success_url = reverse_lazy('items:unitytype_index')
+    form_class = UnityTypeForm 

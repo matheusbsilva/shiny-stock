@@ -1,6 +1,6 @@
 from django.forms import ModelForm
 
-from .models import Item, ItemType
+from .models import Item, ItemType, UnityType
 
 class ItemForm(ModelForm):
     class Meta:
@@ -12,3 +12,10 @@ class ItemTypeForm(ModelForm):
     class Meta:
         model = ItemType
         fields = ['description_item']
+
+
+class UnityTypeForm(ModelForm):
+    class Meta:
+        model = UnityType
+        fields = ['description_unity','size_unity']
+

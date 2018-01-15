@@ -16,4 +16,8 @@ urlpatterns = [
     path('type/new', views.ItemTypeCreate.as_view(), name='itemtype_new'),
     path('type/<int:pk>/edit', views.ItemTypeUpdate.as_view(), name='itemtype_edit'),
     path('type/<int:pk>/delete', views.ItemTypeDelete.as_view(), name='itemtype_delete'),
+
+    path('unity/', views.UnityTypeIndex.as_view(), name='unitytype_index'),
+    path('unity/<int:pk>/', views.UnityTypeDetail.as_view(), name='unitytype_detail'),
+    path('unity/new', views.UnityTypeCreate.as_view(), name='unitytype_new'),
 ]
