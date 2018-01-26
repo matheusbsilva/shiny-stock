@@ -5,6 +5,6 @@ from . import views
 app_name = 'management'
 
 urlpatterns = [
-    path('operation/new', views.OperationCreate.as_view(), name='operation_new'),
+        path('operation/<int:item_id>/new', views.OperationCreate.as_view(), name='operation_new'),
 
 ]

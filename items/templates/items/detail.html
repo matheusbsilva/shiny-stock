@@ -9,6 +9,7 @@
 </ul>
 
 <a href="{% url 'items:items_edit' pk=item.id %}">Editar</a>
+<a href="{% url 'management:operation_new' item_id=item.id %}">Adicionar ou remover itens</a>
 <form action="{% url 'items:items_delete' pk=item.id %}" method="post">
     {% csrf_token %}
     <input type="submit" onclick="return confirm('Tem certeza que deseja deletar?')" value="Deletar item">

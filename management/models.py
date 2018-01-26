@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 from items.models import Item
 
@@ -23,3 +24,10 @@ class Operation(models.Model):
 
     def __str__(self):
         return (str(self.date) + '-' + self.item.name_item)
+
+
+class Profile(models.Model) :
+    # Using django auth User
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    address = models.CharField(blank=True, null=True, max_length=50)
+    phone = models.IntegerField(blank=True, null=True, max_length=15)
